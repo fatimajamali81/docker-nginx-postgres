@@ -43,26 +43,26 @@ Defines the multi-container setup:
   - Sets environment variables for PostgreSQL (`POSTGRES_USER`, `POSTGRES_PASSWORD`, `POSTGRES_DB`).
   - Maps port `5432` on the host to port `5432` in the container.
 
-### 2. `nginx/Dockerfile`
+### 2. nginx/Dockerfile
 
 Builds the Nginx image:
 
 - Uses the official Nginx image.
 - Copies the Nginx configuration file and static HTML files into the container.
 
-### 3. `nginx/default.conf`
+### 3. nginx/default.conf
 
 Configures Nginx to proxy requests to the Flask application:
 
 - Forwards requests from port `80` to the `web` service on port `5000`.
 
-### 4. `nginx/html/index.html`
+### 4. nginx/html/index.html
 
 A simple static HTML page served by Nginx:
 
 - Displays a welcome message indicating that the application is connected to a PostgreSQL database.
 
-### 5. `app/Dockerfile`
+### 5. app/Dockerfile
 
 Builds the Flask application container:
 
@@ -70,28 +70,28 @@ Builds the Flask application container:
 - Installs dependencies from `requirements.txt`.
 - Runs the Flask application.
 
-### 6. `app/requirements.txt`
+### 6. app/requirements.txt
 
 Lists the Python packages needed for the application:
 
 - `flask` for the web framework.
 - `psycopg2-binary` for PostgreSQL database connectivity.
 
-### 7. `app/app.py`
+### 7. app/app.py
 
 A simple Flask application:
 
 - Connects to PostgreSQL using `psycopg2`.
 - Exposes an endpoint that retrieves and returns data from the `users` table in PostgreSQL.
 
-### 8. `postgres/Dockerfile`
+### 8. postgres/Dockerfile
 
 Builds the PostgreSQL image:
 
 - Uses the official PostgreSQL image.
 - Copies the initialization SQL script into the container.
 
-### 9. `postgres/init.sql`
+### 9. postgres/init.sql
 
 Initial SQL script for PostgreSQL:
 
@@ -110,4 +110,5 @@ This project provides a practical example of using Docker Compose to set up a mu
 - **Flask App**: Connects to the PostgreSQL database and provides an endpoint to retrieve data.
 - **PostgreSQL**: Stores data and is initialized with a sample dataset.
 
-
+### License
+This project is licensed under the MIT License.
