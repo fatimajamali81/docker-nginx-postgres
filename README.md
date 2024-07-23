@@ -1,4 +1,3 @@
-# docker-
 # Multi-Container Docker Compose, nginx & postgres Project
 
 This project demonstrates a multi-container application using Docker Compose, including a web application served by Nginx and a PostgreSQL database. The application, running in a Python Flask container, interacts with the PostgreSQL database. Nginx serves as a reverse proxy to the Flask application.
