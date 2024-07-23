@@ -1,0 +1,27 @@
+version: '3.8'
+
+services:
+  web:
+    build: ./app
+    environment:
+      DATABASE_URL: postgres://user:password@db:5432/mydb
+    depends_on:
+      - db
+    ports:
+      - "5000:5000"
+
+  nginx:
+    build: ./nginx
+    ports:
+      - "80:80"
+    depends_on:
+      - web
+
+  db:
+    build: ./postgres
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: mydb
+    ports:
+      - "5432:5432"
